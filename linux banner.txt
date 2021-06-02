@@ -1,0 +1,13 @@
+1.login to all app servers and the db server
+sudo scp -r nautilus_banner tony@stapp01:/home/tony
+sudo scp -r nautilus_banner steve@stapp02:/home/steve
+sudo scp -r nautilus_banner banner@stapp03:/home/banner
+sudo scp -r nautilus_banner peter@stdb0101:/home/peter
+
+2. install open ssh clent in db server
+sudo yum install openssh-clients -y
+
+3.login to each app server again and use command
+sudo mv nautilus_banner /etc/motd
+
+4.Then login with ssh to every app server and db server to see the banner.
