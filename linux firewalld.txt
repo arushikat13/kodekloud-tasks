@@ -1,0 +1,10 @@
+ssh clint@stbkp01
+sudo su
+systemctl status firewalld
+firewall-cmd --list-all --zone=public
+firewall-cmd --permanent --zone=public --add-port=5000/tcp
+firewall-cmd --reload
+systemctl status firewalld
+systemctl restart firewalld
+systemctl status firewalld
+firewall-cmd --list-all --zone=public

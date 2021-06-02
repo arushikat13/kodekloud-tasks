@@ -1,0 +1,15 @@
+ At first login  to respective mentioned server in task. Mine is ssh Steve@stapp02
+
+2.  1st check user is existed on the server  by below command
+
+     sudo  id arushi
+
+3.  If user not found the then you create a user with non-interactive shell like 
+
+     sudo adduser ravi  -s /sbin/nologin
+
+4.  Validate user is created successfully as per the task request.
+
+      sudo  id arushi
+
+      sudo  cat /etc/password |grep arushi

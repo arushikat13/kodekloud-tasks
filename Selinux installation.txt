@@ -1,0 +1,11 @@
+You Should edit #vi /etc/selinux/config At first login to mentioned server in the question ssh tony@stapp02 Then login as root sudo su Now run the following commands and install selinux sudo yum update
+yum install policycoreutils policycoreutils-python selinux-policy selinux-policy-targeted libselinux-utils setroubleshoot-server setools setools-console mcstrans
+#sudo sestatus Finally edit the config file
+vi /etc/selinux/config
+make the selinux status disabled
+
+
+
+
+
+ 

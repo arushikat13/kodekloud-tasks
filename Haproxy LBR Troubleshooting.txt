@@ -1,0 +1,59 @@
+Step1
+
+ssh loki@172.16.238.14
+
+Step2
+
+Checked the status
+
+[loki@stlb01 ~]$ systemctl status haproxy
+
+● haproxy.service - HAProxy Load Balancer
+
+Loaded: loaded (/usr/lib/systemd/system/haproxy.service; disabled; vendor preset: disabled) Active: inactive (dead)
+
+[loki@stlb01 ~]$
+
+Step 3 Validate the Config file
+
+[loki@stlb01 ~]$ haproxy -c -f /etc/haproxy/haproxy.cfg
+
+[ALERT] 302/025622 (96) : parsing [/etc/haproxy/haproxy.cfg:57] : ‘timeout’ supports ‘client’, ‘server’, ‘connect’, ‘check’, ‘queue’, ‘http-keep-alive’, ‘http-request’, ‘tunnel’, ‘tarpit’, ‘client-fin’ and ‘server-fin’ (got ‘checking’)
+
+[ALERT] 302/025622 (96) : Error(s) found in configuration file : /etc/haproxy/haproxy.cfg
+
+[ALERT] 302/025622 (96) : Fatal errors found in configuration.
+
+[loki@stlb01 ~]$
+
+Step4
+
+Edit the config file.
+
+timeout server 1m
+
+timeout http-keep-alive 10s
+
+timeout checking 10s >>>>>Modified to
+
+timeout check 10s
+
+Step5
+
+[loki@stlb01 ~]$ haproxy -c -f /etc/haproxy/haproxy.cfg
+
+Configuration file is valid
+
+[loki@stlb01 ~]$
+
+Step6
+
+Start the service
+
+sudo systemctl start haproxy
+
+Step7
+
+Check the status of the service
+
+systemctl status haproxy

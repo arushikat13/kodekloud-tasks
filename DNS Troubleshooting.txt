@@ -1,0 +1,13 @@
+Login to App Server 2 by:  
+ssh steve@172.16.238.11
+
+Your App server can be different. Check it from your question.
+
+
+Edit the resolv.conf file in vim editor
+sudo vi /etc/resolv.conf
+
+Add the following nameservers 
+
+nameserver 8.8.8.8
+nameserver 8.8.4.4
