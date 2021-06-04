@@ -1,0 +1,4 @@
+login to storage server: natasha@ip
+cd .. ls cd ..
+sudo tar -cvzf kirtsy.tar.gz /data/kirsty
+sudo mv kirsty.tar.gz /home
